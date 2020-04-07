@@ -11,6 +11,7 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(logger('dev'))
 app.use('/api/v1/',route);
+app.use('/uploads', express.static('./uploads'));
 app.listen(port, ()=>{
   console.log(`App Listen post ${port}`);
 })
