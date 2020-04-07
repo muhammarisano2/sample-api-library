@@ -1,6 +1,6 @@
 const express = require('express');
 const Router = express.Router();
+const userController = require('../controller/user');
 Router
-  .get('/admin', (req, res) => res.send('ini adalah admin'))
-  .get('/1', (req, res) => res.send('ini user ke 1'))
+  .post('/login', userController.login)
 module.exports = Router;

@@ -1,11 +1,12 @@
 const express = require('express');
 const Router = express.Router();
 const bookController = require('../controller/book');
+const authHelper = require('../helpers/auth');
 const cors = require('cors');
 
 Router
-  .get('/', bookController.getBooks)
-  .get('/:id_book', bookController.bookDetail)
+  .get('/', authHelper.verify, bookController.getBooks)
+  .get('/:id_book', authHelper.verify ,bookController.bookDetail)
   .post('/', bookController.insertBook)
   .patch('/:id_book', bookController.updateBook)
   .delete('/:id_book', bookController.deleteBook)

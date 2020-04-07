@@ -2,8 +2,9 @@ const bookModel = require('../models/book');
 const MiscHelper = require('../helpers/helpers')
 module.exports = {
   getBooks: (req, res)=>{
+    console.log('id usernaya adalah =' + req.id_user)
     const search = req.query.search;
-    console.log(req.query)
+    // console.log(req.query)
     bookModel.getBooks(search)
     .then((result)=>{
       MiscHelper.response(res, result, 200);

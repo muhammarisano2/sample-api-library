@@ -12,7 +12,8 @@ module.exports = {
           }
         })
       }else{
-        connection.query("SELECT * FROM book", (err, result) => {
+        connection.query("SELECT * FROM book", (err, result, fields) => {
+          console.log(fields)
           if (!err) {
             resolve(result)
           } else {
