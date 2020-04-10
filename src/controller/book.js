@@ -11,7 +11,7 @@ module.exports = {
     // console.log(req.query)
     bookModel.getBooks(search)
     .then((result)=>{
-      client.setex('getallbooks',3600 ,JSON.stringify(result))
+      // client.setex('getallbooks',3600 ,JSON.stringify(result))
       MiscHelper.response(res, result, 200);
     })
     .catch(err=>console.log(err));

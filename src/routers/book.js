@@ -20,11 +20,11 @@ const upload = multer({
 })
 
 Router
-  .get('/', redisHelper.cacheGetAllBooks, bookController.getBooks)
-  .get('/:id_book', authHelper.verify,bookController.bookDetail)
-  .post('/', upload.single('image'), redisHelper.clearGetAllBooks, bookController.insertBook)
-  .patch('/:id_book', redisHelper.clearGetAllBooks, bookController.updateBook)
-  .delete('/:id_book', redisHelper.clearGetAllBooks, bookController.deleteBook)
+  .get('/',  bookController.getBooks)
+  .get('/:id_book', bookController.bookDetail)
+  .post('/', upload.single('image'), bookController.insertBook)
+  .patch('/:id_book',  bookController.updateBook)
+  .delete('/:id_book', bookController.deleteBook)
   // .post('/insert', (req, res) => res.send('ini buku ke 1'))
 
 module.exports = Router;
